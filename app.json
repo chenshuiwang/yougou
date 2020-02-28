@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/demo/index",
+    "pages/tab/index",
+    "pages/category/index",
+    "pages/goods_list/index",
+    "pages/search/index",
+    "pages/goods_detail/index",
+    "pages/cart/index",
+    "pages/order_enter/index",
+    "pages/auth/index",
+    "pages/personal/index",
+    "pages/pay/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
