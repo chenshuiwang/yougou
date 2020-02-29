@@ -1,1 +1,99 @@
 /**index.wxss**/
+.search{
+  padding: 20rpx;
+  background-color: #ff2d4a;
+}
+.search .search-inp{
+  height: 60rpx;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #999;
+}
+.search .search-inp icon{
+  margin-right: 5px;
+}
+.swiper{
+  height: 340rpx;
+}
+.swiper image{
+  width: 750rpx;
+  height: 340rpx;
+}
+.menu{
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.menu image{
+  width: 128rpx;
+  height: 140rpx;
+}
+.floor .floor_title{
+  width: 750rpx;
+  background-color: #f5f5f5;
+}
+.floor .floor_title view{
+  height: 10rpx;
+  width: 100%;
+}
+.floor .floor_title image{
+  width:100%;
+  height: 60rpx;
+  padding-top: 10rpx;
+}
+.floor .product_list{
+  padding: 15rpx;
+  display: flex;
+  justify-content: space-between;
+}
+/* .floor .product_list_left{
+  margin-right: 10rpx;
+} */
+.floor .product_list_right{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.floor .product_list_left image{
+  width: 229rpx;
+  height: 381rpx;
+}
+.floor .product_list_right image{
+  width: 233rpx;
+  height: 188rpx;
+  margin-left: 15rpx;
+}
+.floor + .floor .product_list_right image{
+  width: 193rpx;
+}
+.floor + .floor .product_list_right image:nth-child(3n+1){
+  width: 273rpx;
+}
+.toTop{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 12px;
+  position: fixed;
+  right: 20rpx;
+  bottom: 60rpx;
+}
+.toTop .jiantou{
+  width: 15rpx;
+  height: 15rpx;
+  border-top: 1px solid #333;
+  border-left: 1px solid #333;
+  transform: rotate(45deg);
+  position: relative;
+  top: 3px;
+}

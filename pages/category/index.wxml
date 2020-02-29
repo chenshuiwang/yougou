@@ -1,2 +1,22 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<!-- 头部搜索框 -->
+<navigator url="/pages/search/index">
+  <view class="search">
+    <view class="search-inp">
+      <icon type="search" size="20"></icon>
+      <text>搜索</text>
+    </view>
+</view>
+</navigator>
+<!-- 内容 -->
+<view class="container">
+  <view class="container-left">
+    <view
+    wx:for='{{cateList}}'
+    wx:key='index'
+    bindtap="handleIndex"
+    data-index="{{index}}"
+    class="{{current === index ? 'active' : ''}}"
+    >{{item.cat_name}}</view>
+  </view>
+  <view class="container-right"></view>
+</view>
