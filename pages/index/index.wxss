@@ -1,22 +1,4 @@
 /**index.wxss**/
-.search{
-  padding: 20rpx;
-  background-color: #ff2d4a;
-}
-.search .search-inp{
-  height: 60rpx;
-  background-color: #fff;
-  width: 100%;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  color: #999;
-}
-.search .search-inp icon{
-  margin-right: 5px;
-}
 .swiper{
   height: 340rpx;
 }

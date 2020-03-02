@@ -20,11 +20,9 @@ Page({
     })
   },
   handleIndex(e){
-    console.log(e)
     this.setData({
       current: e.target.dataset.index
     })
-    console.log(this.data.current)
   }
   
 })

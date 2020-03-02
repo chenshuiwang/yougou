@@ -1,2 +1,33 @@
 <!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<!-- 顶部搜索栏 -->
+<navigator url="">
+  <view class="search">
+    <view class="search-inp">
+      <icon type="search" size='20'></icon>
+      <text>小米</text>
+    </view>
+  </view>
+</navigator>
+<!-- 商品列表 -->
+<view class="products">
+  <view class="products-top">
+    <view 
+    wx:for="{{cate}}" 
+    wx:key="index"
+    class="{{current === index ? 'active' : ''}}"
+    bindtap="handleIndex"
+    data-index="{{index}}"
+    >{{item}}
+    <text wx:if="{{index === 2}}" class="iconfont iconpaixu"></text> 
+    </view>
+  </view>
+  <view class="products-list">
+    <products
+    wx:for="{{products}}"
+    wx:key="index"
+    product="{{item}}"
+    ></products>
+  </view>
+</view>
+<!-- 数据加载提示 -->
+<view class="tips">{{tips}}</view>

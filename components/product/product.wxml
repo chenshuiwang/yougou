@@ -1,0 +1,12 @@
+<!--components/product/product.wxml-->
+<navigator url="/pages/goods_detail/index?id={{product.goods_id}}">
+  <view class="product">
+    <image src="{{product.goods_small_logo}}" mode="aspectFill"></image>
+    <view class="detail">
+      <view class="product-detail">{{product.goods_name}}</view>
+      <view class="product-price">￥
+        <text>{{product.goods_price}}</text>
+      </view>
+    </view>
+  </view>
+</navigator>

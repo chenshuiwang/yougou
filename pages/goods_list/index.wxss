@@ -1,1 +1,38 @@
 /* pages/goods_list/index.wxss */
+.search{
+  padding: 30rpx 15rpx;
+  background-color: #efefef;
+}
+.search-inp{
+  width: 100%;
+  height: 70rpx;
+  background-color: #fff;
+  padding-left: 20rpx;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.search-inp icon{
+  margin-right: 10rpx;
+}
+.products-top{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+}
+.products-top .active{
+  color: red;
+}
+.products-list{
+  padding-left: 20rpx;
+}
+.tips{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}

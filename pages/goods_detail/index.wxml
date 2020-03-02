@@ -1,2 +1,49 @@
 <!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<swiper 
+indicator-dots
+
+class="swiper"   
+>
+  <block wx:for="{{goods.pics}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item.pics_big}}" mode="aspectFill"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="price">
+  ￥ {{goods.goods_price}}
+</view>
+<view class="star">
+  <view class="introduce">
+    {{goods.goods_name}}
+  </view>
+  <view class="shoucang">
+    <text class="iconfont icon-shoucang"></text>
+    <text>收藏</text>
+  </view>
+</view>
+<view class="kuai-di">快递：免运费</view>
+<view class="manjian">
+  促销 <text>满300减30元</text>
+</view>
+<view class="bottom">
+  <view class="bottom-left">
+    <view class="kefu">
+      
+      <text class="iconfont icon-kefu"></text>
+      <text>联系客服</text>
+    </view>
+    <view class="kefu">
+      <text class="iconfont icon-gouwuche"></text>
+      <text>购物车</text>
+    </view>
+  </view>
+  <view class="bottom-right">
+    <view class="addCar">
+      <button>加入购物车</button>
+    </view>
+    <view class="pay">
+      <button>立即购买</button>
+    </view>
+  </view>
+</view>

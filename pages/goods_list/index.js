@@ -1,66 +1,62 @@
 // pages/goods_list/index.js
+import request from '../../utils/request.js'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    products:[],
+    current: 0,
+    cate:["综合","销量","价格"],
+    keyword: '',
+    pageNum: 1,
+    tips:'加载中',
+    isLoading: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad(options){
+    let {keyword} = options;
+    this.setData({
+      keyword
+    })
+    this.getdata()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getdata(){
+    if(this.data.tips === '我也是有底线的'){
+      return;
+    }
+    request({
+      url: "/goods/search",
+      data: {
+        query: this.data.keyword,
+        pagesize: 10,
+        pagenum: this.data.pageNum
+      }
+    }).then(res => {
+      console.log(res);
+      let data = res.data.message.goods.map(v => {
+        v.goods_price = Number(v.goods_price).toFixed(2);
+        return v;
+      })
+      this.setData({
+        products: [...this.data.products,...data],
+        isLoading: true
+      })
+      if(res.data.message.total === this.data.products.length){
+        this.setData({
+          tips:"我也是有底线的"
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  handleIndex(e){
+    this.setData({
+      current: e.target.dataset.index
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onReachBottom(){
+    if(this.data.isLoading){
+      this.setData({
+        pageNum: this.data.pageNum + 1,
+        isLoading: false
+      })
+      this.getdata()
+    }
   }
 })

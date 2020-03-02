@@ -1,1 +1,75 @@
 /* pages/goods_detail/index.wxss */
+.swiper{
+  height: 710rpx;
+}
+.price{
+  color: red;
+  height: 125rpx;
+  padding: 0 20rpx;
+  font-size: 20px;
+  line-height: 125rpx;
+}
+.star{
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #343434;
+}
+.star .introduce{
+  width: 500rpx;
+}
+.star .shoucang{
+  display: flex;
+  flex-direction: column;
+  width: 150rpx;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #ddd;
+}
+.kuai-di{
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #9a999a;
+  border-bottom: 20rpx solid #ddd;
+  padding: 0 20rpx;
+}
+.manjian{
+  padding: 20rpx;
+  color: #343434;
+}
+.manjian text{
+  color: red;
+  padding-left: 50rpx;
+}
+.bottom{
+  width: 90rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-left{
+  flex-shrink: 0;
+  width: 300rpx;
+  display: flex;
+}
+.bottom-left .kefu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bottom-right{
+  display: flex;
+  
+}
+.bottom-right button{
+  width: 215rpx;
+  height: 100%;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+}
+.bottom-right .addCar button{
+  background-color: green;
+}
+.bottom-right .pay button{
+  background-color: red;
+}
