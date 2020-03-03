@@ -1,2 +1,37 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<view class="container">
+  <view class="search-warpper">
+    <view class="search">
+      <icon type="search" size="20"></icon>
+      <input 
+        placeholder="请输入搜索内容"
+        bindinput="handleInput"
+        value="{{inputValue}}"
+        bindconfirm="handleEnter"
+        bindblur="handleBlur"></input>
+    </view>
+    <view 
+      class="cancel" 
+      wx:if="{{isShow}}" 
+      bindtap="handleCancel">取消</view>
+    <view class="recommend-list" wx:if="{{recommend.length}}">
+      <view 
+        wx:for="{{recommend}}"
+        wx:key="index">{{item.goods_name}}</view>
+    </view>
+  </view>
+</view>
+<!-- 历史搜索 -->
+<view class="history">
+  <view class="text">
+    <text>历史搜索</text>
+    <icon type="clear" bindtap="handleClear"></icon>
+  </view>
+  <view class="history-list">
+    <navigator 
+    url="/pages/goods_list/index?keyword={{item}}"
+    wx:for="{{history}}"
+    wx:key="index">
+      <view>{{item}}</view>
+    </navigator>
+  </view>
+</view>

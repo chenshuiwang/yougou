@@ -1,66 +1,81 @@
 // pages/search/index.js
+import request from '../../utils/request.js'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    inputValue:"",
+    isShow: false,
+    recommend: [],
+    isLoading: false,
+    lastValue: '',
+    history: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  handleInput(e){
+    this.setData({
+      isShow: true,
+      inputValue: e.detail.value
+    })
+    this.getRecommend();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getRecommend(){
+    if(this.data.isLoading){
+      return;
+    }
+    this.setData({
+      isLoading: true,
+      lastValue: this.data.inputValue
+    })
+    request({
+      url: "/goods/qsearch",
+      data:{
+        query: this.data.inputValue
+      }
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        recommend:res.data.message,
+        isLoading: false
+      })
+      if (this.data.inputValue !== this.data.lastValue) {
+        this.getRecommend();
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  handleCancel(){
+    this.setData({
+      isShow: false,
+      inputValue: "",
+      recommend: []
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  handleEnter(){
+    let arr = wx.getStorageSync('history');
+    if(!Array.isArray(arr)){
+      arr = []
+    }
+    arr.unshift(this.data.inputValue)
+    wx.setStorageSync('history', arr)
+    wx.redirectTo({
+      url: '/pages/goods_list/index?keyword=' + this.data.inputValue,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  onLoad(){
+    let arr = wx.getStorageSync('history');
+    if (!Array.isArray(arr)) {
+      arr = []
+    }
+    this.setData({
+      history:arr
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  handleBlur(){
+    this.setData({
+      recommend: []
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleClear(){
+    this.setData({
+      history: []
+    })
+    wx.setStorageSync('history', [])
   }
 })

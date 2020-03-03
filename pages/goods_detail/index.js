@@ -4,11 +4,11 @@ Page({
   data: {
     goods:{}
   },
-  onLoad(){
+  onLoad(options){
     request({
       url:'/goods/detail',
       data:{
-        goods_id:8888
+        goods_id:options.id||8888
       }
     }).then(res =>{
       console.log(res)

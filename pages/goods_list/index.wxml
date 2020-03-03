@@ -4,7 +4,7 @@
   <view class="search">
     <view class="search-inp">
       <icon type="search" size='20'></icon>
-      <text>小米</text>
+      <text>{{keyword}}</text>
     </view>
   </view>
 </navigator>

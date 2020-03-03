@@ -1,4 +1,7 @@
 /* pages/goods_detail/index.wxss */
+.container{
+  overflow: auto;
+}
 .swiper{
   height: 710rpx;
 }
@@ -16,12 +19,12 @@
   color: #343434;
 }
 .star .introduce{
-  width: 500rpx;
+  width: 600rpx;
 }
 .star .shoucang{
   display: flex;
   flex-direction: column;
-  width: 150rpx;
+  flex: 1;
   justify-content: center;
   align-items: center;
   border-left: 1px solid #ddd;
@@ -45,31 +48,39 @@
   width: 90rpx;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  bottom: 0
 }
 .bottom-left{
   flex-shrink: 0;
-  width: 300rpx;
+  width: 350rpx;
   display: flex;
+  background-color: #fff;
 }
 .bottom-left .kefu{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  width: 50%;
 }
 .bottom-right{
   display: flex;
-  
 }
-.bottom-right button{
-  width: 215rpx;
+.bottom-right .addCar,.bottom-right .pay{
+  width: 200rpx;
   height: 100%;
   color: #fff;
   border: none;
   border-radius: 0;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 14px;
 }
-.bottom-right .addCar button{
-  background-color: green;
+.bottom-right .addCar {
+  background-color: orange;
 }
-.bottom-right .pay button{
+.bottom-right .pay {
   background-color: red;
 }

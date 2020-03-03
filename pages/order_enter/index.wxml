@@ -1,2 +1,24 @@
 <!--pages/order_enter/index.wxml-->
-<text>pages/order_enter/index.wxml</text>
+<view class="container">
+  <!-- 顶部菜单栏 -->
+  <view class="menu">
+    <view 
+    class="menu-item {{current === index ? 'active' : ''}}"
+    wx:for="{{cate}}"
+    wx:key="index"
+    bindtap="handleIndex"
+    data-index="{{index}}">{{item}}</view>
+  </view>
+  <!-- 订单 -->
+  <view class="order">
+    <view class="order-top">
+      <view class="pic">
+        <image src="" mode="aspectFill"></image>
+      </view>
+      <view class="details">
+        <view class="text"></view>
+        <view class="price"></view>
+      </view>
+    </view>
+  </view>
+</view>

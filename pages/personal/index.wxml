@@ -1,2 +1,15 @@
 <!--pages/personal/index.wxml-->
-<text>pages/personal/index.wxml</text>
+<view class="container">
+  <view class="top-container">
+    <view class="top">
+      <text class="iconfont icon-icon_set_up"></text>
+      <view class="login">
+        <view class="pic">
+          <image src="https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2565489729,285956766&fm=58" mode="aspectFill"></image>
+        </view>
+        <text>轻松登录/注册</text>
+      </view>
+      <text class="iconfont icon-dakaihuihua"></text>
+    </view>
+  </view>
+</view>
