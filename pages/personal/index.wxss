@@ -37,3 +37,82 @@ page{
   height: 110rpx;
   border-radius: 50%;
 }
+.content{
+  padding: 20rpx;
+  position: absolute;
+  top: -20rpx;
+  width: 710rpx;
+  height: 100rpx;
+  top: 370rpx;
+}
+.content .mystar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  box-sizing: border-box;
+  font-size: 13px;
+  color: #666;
+}
+.content .mystar view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.content .myorder{
+  background-color: #fff;
+  margin-top: 30rpx;
+  color: #333;
+}
+.myorder .title{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ddd;
+  padding: 0 20rpx;
+}
+.myorder .order-item{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 13px;
+  padding: 30rpx 0;
+}
+.myorder .order-item view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.myorder .order-item view .iconfont{
+  color: #ff2d4a;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+}
+.content .address{
+  margin-top: 30rpx 20rpx;
+  background-color: #fff;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.content .address text{
+  color: #9a999a;
+}
+.content .bottom{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #fff;
+}
+.content .bottom view{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #ddd;
+}
+.content .bottom view text:nth-child(2){
+  color: #9a999a;
+}
