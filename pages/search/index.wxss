@@ -1,4 +1,7 @@
 /* pages/search/index.wxss */
+.wrapper{
+  min-height: 100vh;
+}
 .search-warpper{
   height: 60rpx;
   padding: 30rpx 20rpx;

@@ -53,6 +53,7 @@ Page({
       arr = []
     }
     arr.unshift(this.data.inputValue)
+    arr = [...new Set(arr)]
     wx.setStorageSync('history', arr)
     wx.redirectTo({
       url: '/pages/goods_list/index?keyword=' + this.data.inputValue,
@@ -67,15 +68,17 @@ Page({
       history:arr
     })
   },
-  handleBlur(){
-    this.setData({
-      recommend: []
-    })
-  },
   handleClear(){
     this.setData({
       history: []
     })
     wx.setStorageSync('history', [])
+  },
+  handleClick(e){
+    if(!e.target.dataset.onlyid){
+      this.setData({
+        recommend: []
+      })
+    }
   }
 })

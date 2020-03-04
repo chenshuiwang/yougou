@@ -3,7 +3,11 @@
   <swiper indicator-dots class="swiper">
     <block wx:for="{{goods.pics}}" wx:key="index">
       <swiper-item>
-        <image src="{{item.pics_big}}" mode="aspectFill"></image>
+        <image 
+          src="{{item.pics_big}}" 
+          mode="aspectFill" 
+          bindtap="previewImage"
+          data-index="{{index}}"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -24,15 +28,35 @@
     促销
     <text>满300减30元</text>
   </view>
+  <view class="tab">
+    <view 
+    wx:for="{{['编辑器','商品参数']}}"
+    wx:key="index"
+    bindtap="handleTab"
+    data-index="{{index}}"
+    class="{{tabIndex === index ? 'active' : ''}}"
+    >{{item}}</view>
+  </view>
+  <view class="richText" wx:if="{{tabIndex === 0}}">
+    <rich-text nodes="{{goods.goods_introduce}}"></rich-text>
+  </view>
+  <view class="goods-detail" wx:if="{{tabIndex === 1}}">
+    <view wx:for="{{goods.attrs}}" wx:key="index">
+      <text>{{item.attr_name}}：</text>
+      <text>{{item.attr_vals}}</text>
+    </view>
+  </view>
 </view>
 <view class="bottom">
   <view class="bottom-left">
+    <view class="btn">
+      <button open-type="contact"></button>
+    </view>
     <view class="kefu">
-
       <text class="iconfont icon-kefu"></text>
       <text>联系客服</text>
     </view>
-    <view class="kefu">
+    <view class="kefu" bindtap="toCart">
       <text class="iconfont icon-gouwuche"></text>
       <text>购物车</text>
     </view>

@@ -1,16 +1,21 @@
 /* pages/goods_detail/index.wxss */
 .container{
   overflow: auto;
+  padding-bottom: 100rpx;
 }
 .swiper{
-  height: 710rpx;
+  height: 750rpx;
+}
+.swiper image{
+  width: 750rpx;
+  height: 750rpx;
 }
 .price{
   color: red;
-  height: 125rpx;
+  height: 100rpx;
   padding: 0 20rpx;
   font-size: 20px;
-  line-height: 125rpx;
+  line-height: 100rpx;
 }
 .star{
   padding: 0 20rpx;
@@ -20,6 +25,12 @@
 }
 .star .introduce{
   width: 600rpx;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .star .shoucang{
   display: flex;
@@ -28,6 +39,7 @@
   justify-content: center;
   align-items: center;
   border-left: 1px solid #ddd;
+  color: #999;
 }
 .kuai-di{
   height: 100rpx;
@@ -35,6 +47,7 @@
   color: #9a999a;
   border-bottom: 20rpx solid #ddd;
   padding: 0 20rpx;
+  font-size: 13px;
 }
 .manjian{
   padding: 20rpx;
@@ -44,18 +57,50 @@
   color: red;
   padding-left: 50rpx;
 }
+.tab{
+  width: 710rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  color: #333;
+  border-top: 10px solid #eee;
+}
+.tab view{
+  width: 50%;
+  text-align: center;
+}
+.tab .active{
+  background-color: orange;
+  color: #fff;
+}
+.richText,.goods-detail{
+  padding: 0 20rpx;
+  font-size: 13px;
+}
 .bottom{
-  width: 90rpx;
+  width: 750rpx;
+  height: 100rpx;
   display: flex;
   justify-content: space-between;
   position: fixed;
   bottom: 0
 }
 .bottom-left{
-  flex-shrink: 0;
-  width: 350rpx;
+  width: 40%;
   display: flex;
   background-color: #fff;
+}
+.bottom-left .btn{
+  position: absolute;
+  background-color: red;
+  width: 20%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+.bottom-left .btn button{
+  width: 100%;
+  height: 100%;
 }
 .bottom-left .kefu{
   display: flex;
@@ -67,9 +112,10 @@
 }
 .bottom-right{
   display: flex;
+  width: 60%;
 }
 .bottom-right .addCar,.bottom-right .pay{
-  width: 200rpx;
+  width: 50%;
   height: 100%;
   color: #fff;
   border: none;
