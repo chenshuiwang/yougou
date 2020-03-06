@@ -1,66 +1,67 @@
-// pages/cart/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    address:{},
+    goods: [],
+    sumPrice: 0,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  getAddress(){
+    wx.chooseAddress({
+      success: (res) => {
+        this.setData({
+          address:{
+            name: res.userName,
+            number: res.telNumber,
+            detail: res.provinceName + res.cityName + res.countyName + res.detailInfo
+          }
+        })
+        wx.setStorageSync("address", this.data.address)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onLoad(){
+    this.setData({
+      address: wx.getStorageSync("address")||{}
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onShow(){
+    let goods = wx.getStorageSync("goods")||[];
+    this.setData({
+      goods
+    })
+    this.handleAllPrice();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  caculate(e){
+    const {number,index} = e.target.dataset;
+    this.data.goods[index].number += number;
+    if (this.data.goods[index].number === 0){
+      wx.showModal({
+        title: '提示',
+        content: '是否删除该商品',
+        success: (res) => {
+          if (res.confirm) {
+            this.data.goods.splice(index,1);
+          } else if (res.cancel) {
+            this.data.goods[index].number += 1;
+          }
+          this.setData({
+            goods: this.data.goods
+          })
+        }
+      })
+    }
+    this.setData({
+      goods: this.data.goods
+    })
+    this.handleAllPrice();
+    wx.setStorageSync("goods",this.data.goods)
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleAllPrice(){
+    let price = 0
+    for (let i = 0; i < this.data.goods.length; i++) {
+      price += this.data.goods[i].number * this.data.goods[i].price
+    }
+    this.setData({
+      sumPrice: Number(price).toFixed(2)
+    })
   }
 })

@@ -1,2 +1,88 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="container">
+  <!-- 顶部收货人、收货地址 -->
+  <view class="header" wx:if="{{address.name}}">
+    <view class="shouhuoren">
+      <view class="shouhuoren-left">
+        收货人：
+        <text>{{address.name}}</text>
+      </view>
+      <view class="shouhuoren-right">
+        {{address.number}}
+        <text class="iconfont iconyoujiantou"></text>
+      </view>
+    </view>
+    <view class="address">
+      收藏地址：
+      <text>{{address.detail}}</text>
+    </view>
+  </view>
+  <view class="header" wx:if="{{address.name == null}}" bindtap="getAddress">
+    <view class="shouhuoren">
+      <view class="shouhuoren-left">
+        <text>获取收货地址</text>
+      </view>
+      <view class="shouhuoren-right">
+        <text class="iconfont iconyoujiantou"></text>
+      </view>
+    </view>
+  </view>
+  <image src="../../images/cart_border@2x.png" mode="aspectFill" class="cart_border"></image>
+  <!-- 优购生活馆 -->
+  <view class="yougou">
+    <text class="iconfont icon-dianpu"></text> 优购生活馆
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods-list" wx:for="{{goods}}" wx:key="index">
+    <view class="goods-item">
+      <view class="icon">
+        <icon type="success" size="15" color="red"></icon>
+      </view>
+      <view class="goods-detail">
+        <view class="goods-pic">
+          <image src="{{item.logo}}" mode="aspectFill" ></image>
+        </view>
+        <view class="goods-text">
+          <view class="top">
+            <text>{{item.name}}</text>
+          </view>
+          <view class="bottom">
+            <view class="price">
+            ￥<text>{{item.price}}</text>
+            </view>
+            <view class="jiajian">
+              <view 
+              class="add" 
+              bindtap="caculate" 
+              data-number='{{-1}}'
+              data-index="{{index}}">-</view>
+              <view class="num">{{item.number}}</view>
+              <view 
+              class="del" 
+              bindtap="caculate"
+              data-number='{{1}}'
+              data-index="{{index}}">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 全选、结算模块 -->
+  <view class="only-bottom">
+    <view class="bottom-left">
+      <view class="selectAll">
+        <icon type="success" color="red" size="15"></icon>
+        <text>全选</text>
+      </view>
+      <view class="acount">
+        <view class="acount-top">
+          <text>合计：</text>
+          <text>￥</text>
+          <text>{{sumPrice}}</text>
+        </view>
+        <view class="acount-bottom">包含运费</view>
+      </view>
+    </view>
+    <view class="jiesuan">结算(0)</view>
+  </view>
+</view>

@@ -62,7 +62,7 @@
     </view>
   </view>
   <view class="bottom-right">
-    <view class="addCar">加入购物车</view>
+    <view class="addCar" bindtap="addCart">加入购物车</view>
     <view class="pay">立即购买</view>
   </view>
 </view>

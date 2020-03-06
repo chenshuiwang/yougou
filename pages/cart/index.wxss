@@ -1,1 +1,146 @@
-/* pages/cart/index.wxss */
+.container {
+  color: #333;
+}
+
+.header {
+  padding: 20rpx;
+  width: 710rpx;
+}
+
+.header .shouhuoren {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .address {
+  padding: 20rpx 0;
+}
+.cart_border{
+  display: block;
+  height: 15rpx;
+  width: 750rpx;
+}
+.yougou {
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #ddd;
+  border-top: 20rpx solid #ddd;
+}
+
+.goods-list {
+  width: 710rpx;
+  padding: 20rpx;
+}
+
+.goods-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding-right: 20rpx;
+}
+
+.goods-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20rpx;
+}
+
+.goods-detail .goods-pic image{
+  height: 160rpx;
+  width: 160rpx;
+}
+.goods-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 20rpx;
+  height: 160rpx;
+}
+
+.goods-text .top text{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.goods-text .bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.goods-text .bottom .price {
+  color: red;
+}
+
+.goods-text .bottom .price text {
+  font-size: 18px;
+}
+.goods-text .bottom .jiajian{
+  display: flex;
+  justify-content: space-around;
+}
+.goods-text .bottom .jiajian .add,.goods-text .bottom .jiajian .del{
+  border: 2px solid #666;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.goods-text .bottom .jiajian .num{
+  padding: 0 20rpx;
+  line-height: 20px
+}
+.only-bottom{
+  position: fixed;
+  bottom: 0;
+  height: 120rpx;
+  width: 750rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-left{
+  padding: 20rpx;
+  width: 510rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+}
+.only-bottom .selectAll text{
+  margin-left: 20rpx;
+}
+.only-bottom .selectAll{
+  display: flex;
+  align-items: center;
+}
+.only-bottom .acount-top text:nth-child(2){
+  font-size: 12px;
+  color: red;
+}
+.only-bottom .acount-top text:nth-child(3){
+  color: red;
+}
+.only-bottom .acount-bottom{
+  font-size: 12px;
+  color: #999;
+}
+.only-bottom .jiesuan{
+  width: 200rpx;
+  background-color: red;
+  height: 100%;
+  line-height: 120rpx;
+  text-align: center;
+  color: #fff;
+}
