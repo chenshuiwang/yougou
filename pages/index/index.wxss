@@ -68,7 +68,7 @@
   font-size: 12px;
   position: fixed;
   right: 20rpx;
-  bottom: 60rpx;
+  bottom: 70px;
 }
 .toTop .jiantou{
   width: 15rpx;

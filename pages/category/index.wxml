@@ -1,33 +1,28 @@
-<!-- 头部搜索框 -->
-<search/>
-<!-- 内容 -->
-<view class="container">
-<!-- 左边菜单 -->
-  <view class="container-left">
-    <view wx:for='{{cateList}}' wx:key='index' bindtap="handleIndex" data-index="{{index}}" class="{{current === index ? 'active' : ''}}">{{item.cat_name}}</view>
-  </view>
-  <!-- 右边内容 -->
-  <view class="container-right">
-    <view class="container-right-header">
-      <image mode="aspectFill" src="http://img0.imgtn.bdimg.com/it/u=1162614840,202867920&fm=26&gp=0.jpg"></image>
+<view class="tab-page">
+  <!-- 头部搜索框 -->
+  <search/>
+  <view class="container">
+    <!-- 左边菜单 -->
+    <view class="container-left">
+      <view wx:for='{{cateList}}' wx:key='index' bindtap="handleIndex" data-index="{{index}}" class="{{current === index ? 'active' : ''}}">{{item.cat_name}}</view>
     </view>
-    <block
-    wx:for="{{cateList[current].children}}"
-    wx:key="index">
-      <view class="title">
-        / <text>{{item.cat_name}}</text>  /
+    <!-- 右边内容 -->
+    <view class="container-right">
+      <view class="container-right-header">
+        <image mode="aspectFill" src="http://img0.imgtn.bdimg.com/it/u=1162614840,202867920&fm=26&gp=0.jpg"></image>
       </view>
-      <view class="product-list">
-        <navigator 
-        class="product" 
-        wx:for="{{item.children}}" 
-        wx:key="index"
-        url="/pages/goods_list/index?keyword={{item.cat_name}}"
-        >
-          <image mode="aspectFill" src="{{item.cat_icon}}"></image>
-          <text>{{item.cat_name}}</text>
-        </navigator>
-      </view>
-    </block>
+      <block wx:for="{{cateList[current].children}}" wx:key="index">
+        <view class="title">
+          /
+          <text>{{item.cat_name}}</text> /
+        </view>
+        <view class="product-list">
+          <navigator class="product" wx:for="{{item.children}}" wx:key="index" url="/pages/goods_list/index?keyword={{item.cat_name}}">
+            <image mode="aspectFill" src="{{item.cat_icon}}"></image>
+            <text>{{item.cat_name}}</text>
+          </navigator>
+        </view>
+      </block>
+    </view>
   </view>
 </view>

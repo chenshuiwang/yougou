@@ -1,6 +1,14 @@
 //index.js
 import request from '../../utils/request.js'
 Page({
+  onShow(){
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
+  },
   onLoad(){
     //请求轮播图数据
     request({

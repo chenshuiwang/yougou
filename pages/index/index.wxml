@@ -1,48 +1,38 @@
-<!-- 顶部搜索栏 -->
-<search/>
-<!-- 轮播图 -->
-<swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="rgba(255, 255, 255, 1)" circular class="swiper">
-  <block wx:for="{{banners}}" wx:key='index'>
-    <swiper-item>
-      <image src="{{item.image_src}}" mode="aspectFill"></image>
-    </swiper-item>
-  </block>
-</swiper>
-<!-- 分类菜单 -->
-<view class="menu">
-  <navigator
-   wx:for="{{menu}}" 
-   wx:key="index" 
-   url="{{item.navigator_url}}"
-   open-type="{{item.open_type}}"
-   >
-    <image src="{{item.image_src}}"></image>
-  </navigator>
-</view>
-<!-- 楼层布局 -->
-<view class="floor"
-wx:for="{{floor}}"
-wx:key="index">
-  <view class="floor_title">
-    <view></view>
-    <image src="{{item.floor_title.image_src}}" ></image>
+<view class="tab-page">
+  <!-- 顶部搜索栏 -->
+  <search/>
+  <!-- 轮播图 -->
+  <swiper indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="rgba(255, 255, 255, 1)" circular class="swiper">
+    <block wx:for="{{banners}}" wx:key='index'>
+      <swiper-item>
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 分类菜单 -->
+  <view class="menu">
+    <navigator wx:for="{{menu}}" wx:key="index" url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+      <image src="{{item.image_src}}"></image>
+    </navigator>
   </view>
-  <view class="product_list">
-    <view class="product_list_left">
-      <image src="{{item.product_list[0].image_src}}"></image>
+  <!-- 楼层布局 -->
+  <view class="floor" wx:for="{{floor}}" wx:key="index">
+    <view class="floor_title">
+      <view></view>
+      <image src="{{item.floor_title.image_src}}"></image>
     </view>
-    <view 
-    class="product_list_right">
-      <image 
-      src="{{item.image_src}}"
-      wx:for="{{item.product_list}}"
-      wx:key="index"
-      wx:if="{{index > 0 }}"></image>
+    <view class="product_list">
+      <view class="product_list_left">
+        <image src="{{item.product_list[0].image_src}}"></image>
+      </view>
+      <view class="product_list_right">
+        <image src="{{item.image_src}}" wx:for="{{item.product_list}}" wx:key="index" wx:if="{{index > 0 }}"></image>
+      </view>
     </view>
   </view>
-</view>
-<!-- 回到顶部 -->
-<view class="toTop" bindtap="handleToTop" wx:if="{{isShow}}">
-  <view class="jiantou"></view>
-  <text>顶部</text>
+  <!-- 回到顶部 -->
+  <view class="toTop" bindtap="handleToTop" wx:if="{{isShow}}">
+    <view class="jiantou"></view>
+    <text>顶部</text>
+  </view>
 </view>

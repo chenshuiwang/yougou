@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container tab-page" wx:if="{{goods.length > 0}}">
   <!-- 顶部收货人、收货地址 -->
   <view class="header" wx:if="{{address.name}}">
     <view class="shouhuoren">
@@ -33,45 +33,41 @@
   </view>
   <!-- 商品列表 -->
   <view class="goods-list" wx:for="{{goods}}" wx:key="index">
+
     <view class="goods-item">
       <view class="icon">
-        <icon type="success" size="15" color="red"></icon>
+        <icon type="success" size="15" color="{{item.select ? 'red' : 'gray'}}" bindtap="selectOne" data-index="{{index}}"></icon>
       </view>
       <view class="goods-detail">
-        <view class="goods-pic">
-          <image src="{{item.logo}}" mode="aspectFill" ></image>
-        </view>
+        <navigator class="goods-pic" url="/pages/goods_detail/index?id={{item.id}}">
+          <image src="{{item.logo}}" mode="aspectFill"></image>
+        </navigator>
         <view class="goods-text">
           <view class="top">
             <text>{{item.name}}</text>
           </view>
           <view class="bottom">
             <view class="price">
-            ￥<text>{{item.price}}</text>
+              ￥
+              <text>{{item.price}}</text>
             </view>
             <view class="jiajian">
-              <view 
-              class="add" 
-              bindtap="caculate" 
-              data-number='{{-1}}'
-              data-index="{{index}}">-</view>
-              <view class="num">{{item.number}}</view>
-              <view 
-              class="del" 
-              bindtap="caculate"
-              data-number='{{1}}'
-              data-index="{{index}}">+</view>
+              <view class="add" bindtap="caculate" data-number='{{-1}}' data-index="{{index}}">-</view>
+
+              <input type="number" value="{{item.number}}" bindblur="editNumber" data-index="{{index}}"></input>
+              <view class="del" bindtap="caculate" data-number='{{1}}' data-index="{{index}}">+</view>
             </view>
           </view>
         </view>
       </view>
     </view>
+
   </view>
   <!-- 全选、结算模块 -->
   <view class="only-bottom">
     <view class="bottom-left">
-      <view class="selectAll">
-        <icon type="success" color="red" size="15"></icon>
+      <view class="selectAll" bindtap="selectAll">
+        <icon type="success" color="{{selectAll ? 'red' : 'gray'}}" size="15"></icon>
         <text>全选</text>
       </view>
       <view class="acount">
@@ -83,6 +79,9 @@
         <view class="acount-bottom">包含运费</view>
       </view>
     </view>
-    <view class="jiesuan">结算(0)</view>
+    <view class="jiesuan" bindtap="jiesuan">结算({{jiesuan}})</view>
   </view>
+</view>
+<view class="cover" wx:if="{{goods.length === 0}}">
+  <text>您的购物车空空如也~</text>
 </view>

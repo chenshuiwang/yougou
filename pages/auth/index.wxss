@@ -1,1 +1,5 @@
-/* pages/auth/index.wxss */
+.auth{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}

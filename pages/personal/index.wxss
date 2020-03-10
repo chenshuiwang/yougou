@@ -18,13 +18,10 @@ page{
 .top .login .pic{
   width: 120rpx;
   height: 120rpx;
-  padding: 1px;
   border-radius: 50%;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 2px solid #fff;
   margin-bottom: 20rpx;
+  overflow: hidden;
 }
 .top .login{
   display: flex;
@@ -42,10 +39,11 @@ page{
   position: absolute;
   top: -20rpx;
   width: 710rpx;
-  height: 100rpx;
   top: 370rpx;
+  padding-bottom: 48px;
 }
 .content .mystar{
+  height: 100rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;

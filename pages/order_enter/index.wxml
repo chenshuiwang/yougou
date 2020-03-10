@@ -1,24 +1,52 @@
-<!--pages/order_enter/index.wxml-->
-<view class="container">
-  <!-- 顶部菜单栏 -->
-  <view class="menu">
-    <view 
-    class="menu-item {{current === index ? 'active' : ''}}"
-    wx:for="{{cate}}"
-    wx:key="index"
-    bindtap="handleIndex"
-    data-index="{{index}}">{{item}}</view>
-  </view>
-  <!-- 订单 -->
-  <view class="order">
-    <view class="order-top">
-      <view class="pic">
-        <image src="" mode="aspectFill"></image>
+<view class="container tab-page" >
+  <!-- 顶部收货人、收货地址 -->
+  <view class="header">
+    <view class="shouhuoren">
+      <view class="shouhuoren-left">
+        收货人：
+        <text>{{address.name}}</text>
       </view>
-      <view class="details">
-        <view class="text"></view>
-        <view class="price"></view>
+      <view class="shouhuoren-right">
+        {{address.number}}
       </view>
     </view>
+    <view class="address">
+      收藏地址：
+      <text>{{address.detail}}</text>
+    </view>
+  </view>
+  <image src="../../images/cart_border@2x.png" mode="aspectFill" class="cart_border"></image>
+  <!-- 优购生活馆 -->
+  <view class="yougou">
+    <text class="iconfont icon-dianpu"></text> 优购生活馆
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods-list" wx:for="{{goods}}" wx:key="index">
+    <view class="goods-item">
+      <view class="goods-detail">
+        <navigator class="goods-pic" url="/pages/goods_detail/index?id={{item.id}}">
+          <image src="{{item.logo}}" mode="aspectFill"></image>
+        </navigator>
+        <view class="goods-text">
+          <view class="top">
+            <text>{{item.name}}</text>
+          </view>
+          <view class="bottom">
+            <view class="price">
+              ￥<text>{{item.price}}</text>
+            </view>
+            <view>数量*{{item.number}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 总价格 -->
+  <view class="allPrice">
+    总价格：<text>￥<text>{{sumPrice}}</text></text>
+  </view>
+  <!-- 立即支付 -->
+  <view class="pay">
+    <button type="primary" bindtap="pay">立即支付</button>
   </view>
 </view>

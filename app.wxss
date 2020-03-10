@@ -1,3 +1,6 @@
 /**app.wxss**/
 @import "common/style.wxss";
 @import "common/font.wxss";
+.tab-page{
+  padding-bottom: 48px;
+}

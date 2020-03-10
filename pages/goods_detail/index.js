@@ -56,14 +56,19 @@ Page({
       }
       return isExit;
     })
-    console.log(index)
     if(!index){
       goods.unshift({
         id: this.data.goods.goods_id,
         name: this.data.goods.goods_name,
         logo: this.data.goods.goods_small_logo,
         price: Number(this.data.goods.goods_price).toFixed(2),
-        number: 1
+        number: 1,
+        select: false
+      })
+      wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 2000
       })
     }
     wx.setStorageSync("goods", goods)

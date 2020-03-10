@@ -1,7 +1,13 @@
 .container {
   color: #333;
 }
-
+.cover{
+  width: 750rpx;
+  height: 100vh;
+  background-color: #ddd;
+  line-height: 100vh;
+  text-align: center;
+}
 .header {
   padding: 20rpx;
   width: 710rpx;
@@ -97,13 +103,14 @@
   line-height: 20px;
   text-align: center;
 }
-.goods-text .bottom .jiajian .num{
-  padding: 0 20rpx;
-  line-height: 20px
+.goods-text .bottom .jiajian input{
+  width: 20px;
+  height: 20px;
+  text-align: center;
 }
 .only-bottom{
   position: fixed;
-  bottom: 0;
+  bottom: 48px;
   height: 120rpx;
   width: 750rpx;
   background-color: #fff;
